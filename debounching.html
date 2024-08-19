@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing</title>
+</head>
+<body>
+   <h1>Debouncing</h1> 
+   
+   <input type="text" onkeyup="betterFunction()">
+
+   <script>
+    let counter = 0;
+    function getData(){
+        console.log("Fetching Data..", + counter++);
+    }
+
+    const debounce = function(fn,d){
+        let timer;
+        return function(){
+            let context = this;
+            let arg = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                fn.apply(context,arg);
+            },d)
+        }
+    }
+
+    const betterFunction = debounce(getData,300);
+
+   </script>
+
+</body>
+</html>

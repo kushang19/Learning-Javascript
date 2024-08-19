@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>call apply bind</title>
+    <script>
+
+    // ------------------------  call  -----------------------------------------------------------
+    //   function setUserName(username) {
+    //     this.username = username;
+    //     console.log("called");
+    //   }
+
+    //   function createUserName(username, email, password) {
+    //     setUserName.call(this, username);
+    //     this.email = email;
+    //     this.password = password;
+    //   }
+
+    //   let chai = new createUserName("chai", "chai@test.com", 123);
+
+    //   console.log(chai);
+
+    // ---------------------------------------------------------------------------------------------
+
+    const name = {
+        firstname: "Kushang",
+        lastname: "Gharat",
+    }
+    const name2 = {
+        firstname: "Sachin",
+        lastname: "Tendulkar",
+    }
+
+    function printName(city,state){
+            console.log(this.firstname + " " + this.lastname + " is from "+ city + ", " + state);
+        }
+
+    // call
+
+    printName.call(name,"Mumbai", "Maharashtra");   // name belongs to "this" keyword
+    printName.call(name2,"Pune", "Hindustan"); // name2 belongs to "this" keyword
+    
+
+    // apply 
+
+    printName.apply(name2,["Pune", "Hindustan"]); // name2 belongs to "this" keyword, in apply we pass 2nd argument as an array 
+
+
+    // bind
+
+    const printMyName = printName.bind(name,"Mumbai", "Maharashtra"); // here we store function in a variable which can be invoked later 
+    console.log(printMyName);
+
+
+    printMyName(); //invoking bind function 
+        
+    </script>
+  </head>
+  <body>
+    <h1>call apply bind</h1>
+  </body>
+</html>

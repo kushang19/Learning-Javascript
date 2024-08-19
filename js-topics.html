@@ -514,16 +514,37 @@ regularFunc, on the other hand, has its own this, which refers to obj.
 // call syntax : const newFunction = functionName.bind(this.Arg, arg1,arg2,...)
 
 {
+
+
   function greet(greetings, punctuation){
     console.log(greetings + ' ' + this.name + punctuation);
-}
+  }
 
 const person = {name: 'kushang'}
 greet.call(person, 'Hello', '!');
 greet.apply(person,['Hi','...'])
 const greetPerson = greet.bind(person, 'Hey');
-greetPerson('!!')
+greetPerson('!!');
+
+
 }
+
+// call 
+
+// function setUserName(username){
+//     this.username = username;
+//     console.log("called")
+// }
+
+// function createUserName(username,email,password){
+//     setUserName.call(this,username)
+//     this.email = email;
+//     this.password = password;
+// }
+
+// let chai = new createUserName("chai","chai@test.com",123);
+
+// console.log(chai)
 
 
 {
