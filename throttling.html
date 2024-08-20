@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttling</title>
+</head>
+<script>
+
+    const expensive = () => {
+        console.log("Expensive $$$$");
+    }
+
+    const throttle = (func,limit) => {
+        let flag = true;
+        return function() {
+            let context = this;
+            let args = arguments;
+            if(flag){
+                func.apply(context, args);
+                flag = false;
+                setTimeout(() => {
+                    flag = true;
+                },limit);
+            }
+        }
+    };
+
+    const betterExpense = throttle(expensive,500);
+
+    window.addEventListener("resize",betterExpense);
+
+</script>
+<body>
+    <h1>Throttling</h1>
+</body>
+</html>

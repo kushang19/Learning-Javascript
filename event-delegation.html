@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+    <style>body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}</style>
+</head>
+<body>
+    <h1>Event Delegation</h1>
+    <p>Event Deliagtion can be achived with help of Event Bubbling</p>
+    <p><b>Advantage:</b> <br>
+        1. Need to attach only single event handler so it saves a lot of memory<br> 
+        2. Write less code <br>
+        3. DOM Manuplation<br>
+    </p>
+    <p><b>Disadvantage:</b><br>
+        1. All events are not bubbled up (eg: focus, blur, scroll, resize etc).<br>
+        2. Cannot use Stop Propogation  
+    </p>
+
+    <!-- Example 1 -->
+
+    <!-- <div>
+        <ul id="catagory">
+            <li id="laptops">laptops</li>
+            <li id="cameras">cameras</li>
+            <li id="shoes">shoes</li>
+            <p id="dummy">dummy</p>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById("catagory").addEventListener("click", (e) => {
+            if(e.target.tagName == 'LI'){
+                window.location.href = "/" + e.target.id
+            }
+        })
+    </script> -->
+
+    <!-- Example 2 -->
+
+    <div id="form">
+        <input type="text" id="name" data-uppercase>
+        <input type="text" id="pan">
+        <input type="text" id="mobile">
+    </div>
+
+    <script>
+        document.getElementById("form").addEventListener("input", (e) => {
+            console.log(e);
+            if(e.target.dataset.uppercase != undefined){
+                e.target.value = e.target.value.toUpperCase() 
+            }
+            
+        })
+    </script>
+    
+</body>
+</html>
