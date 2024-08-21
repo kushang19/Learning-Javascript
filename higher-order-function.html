@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>higher-order-function</title>
+    <style>body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}</style>
+    <script>
+        const radius = [2,7,4,9];
+
+        // callback function
+        const area = (radius) => {
+            return Math.PI * radius * radius;
+        };
+
+        // callback function
+        const diameter = radius => {
+            return 2 * radius;
+        }
+
+        //Here calculate is Higher Order Function
+        // const calculate = (radius, area) => {
+        //     let output = [];
+        //     for(let i = 0; i < radius.length; i++) {
+        //        output.push(area(radius[i])); 
+        //     }
+        //     return output;
+        // };
+        
+        // console.log(calculate(radius,area)); 
+        // console.log(calculate(radius,diameter)); 
+        // console.log(radius.map(diameter)); // map is a higher order function
+        
+        
+        // making my code similar to map function by adding it into Array.prototype (polifill for map)
+            Array.prototype.calculate = function(area){ //by using arrow function here we are getting an empty array as a output because arrow function doesn't have its "this" keyword 
+            let output = [];
+            for(let i = 0; i < this.length; i++) {
+                output.push(area(this[i])); 
+            }
+            return output;
+        };
+        
+        console.log(radius.calculate(area));
+        
+    </script>
+</head>
+<body>
+    <h1>Higher Order Function</h1>
+    <p>Function which takes function has an arguments(1 or more) or return a function are called HOF</p>
+</body>
+</html>
