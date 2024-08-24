@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrow function</title>
+    <script>
+        // const user = {
+        //     name:"kushang",
+        //     age:29,
+        //     welcomeMessage : function(){
+        //         console.log(`${this.name}, welcome to this coding field`);  
+        //         // console.log(this);
+        //     }
+        // };
+
+        // user.welcomeMessage();
+        // user.name = "gharat"
+        // user.welcomeMessage();
+        // console.log(this);
+
+        //  ==================================================================================
+
+        // function chai(){
+            //     let name = "kushang"
+            //     console.log("this is : ",this.name);
+            // };
+            // chai();
+            
+        //  ==================================================================================
+
+        //    const addTwo = (num1,num2) => { // need to write return kw when using {}
+        //     return num1 + num2;
+        //    };
+
+        // const addTwo = (num1,num2) => num1 + num2 
+
+        // const addTwo = (num1,num2) => (num1 + num2 ) 
+
+        const addTwo = (num1,num2) => ({name: "kushang"})  // no need to write return kw when using ()
+
+        console.log(addTwo(2,4));
+       
+        
+    </script>
+</head>
+<body>
+    <h1>Arrow Function</h1>
+</body>
+</html>
